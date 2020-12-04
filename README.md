@@ -1,2 +1,2 @@
-# Citas-Medicas
-Sistema de registro y solicitud de citas médicas
+# Planificador-Actividades
+Sistema de registro de actividades
