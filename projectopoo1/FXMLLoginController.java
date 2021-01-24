@@ -1,12 +1,18 @@
 package projectopoo1;
 
-
-
 import Registro.FXMLRegistroController;
-import Usuarios.usuariosAPP;
+import static Registro.FXMLRegistroController.PASSWORD;
+import static Registro.FXMLRegistroController.URL;
+import static Registro.FXMLRegistroController.USERNAME;
 import VentanaPrincipal.CalendarioInicioController;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +33,12 @@ import javafx.stage.StageStyle;
 
 public class FXMLLoginController implements Initializable {
 
+    /////////////////////
+
+    PreparedStatement ps;
+    ResultSet rs;
+    Connection con = null;
+    /////////////////
     private float xOffset = 0f;
     private float yOffset = 0f;
     @FXML
@@ -44,14 +56,15 @@ public class FXMLLoginController implements Initializable {
     @FXML
     private void Datos(ActionEvent e) {
 
-        if (us.getText().isEmpty()== false && cot.getText().isEmpty() == false) {
+        if (us.getText().isEmpty() == false && cot.getText().isEmpty() == false) {
             validateLogin();
-        }else{
+        } else {
             prueba.setText("Ingresa tu usuario y contraseña");
         }
     }
+
     @FXML
-    private void salir(ActionEvent e){
+    private void salir(ActionEvent e) {
         System.exit(0);
     }
 
@@ -96,6 +109,7 @@ public class FXMLLoginController implements Initializable {
         }
 
     }
+
     @FXML
     private void CalendarioDeEvento() {
 
@@ -143,18 +157,41 @@ public class FXMLLoginController implements Initializable {
 
     }
 
-    private void validateLogin() {
-        usuariosAPP user1 = new usuariosAPP("eduardo", "12345678", "eduardo3@gmail.com");
-        if (user1.getUsusario().equals(us.getText()) && user1.getContra().equals(cot.getText())) {
-            prueba.setText("iniciando......");
-            CalendarioDeEvento();
-        }else{
-            prueba.setText("Usuario y contrseña incorrecta");
-            us.setText("");
-            cot.setText("");
+    //funcion de base de datos
+
+    public static Connection getConecion() {
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("Conexion exitosa");
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
         }
+        return con;
     }
 
-    
+    public void validateLogin() {
+        try {
+            con = getConecion();
+            String vlogin ="SELECT count(1) FROM usuario WHERE useres = '"+us.getText()+"' AND password = '"+cot.getText()+"'";
+            
+            Statement stat = con.createStatement();
+            rs =stat.executeQuery(vlogin);
+            
+            while (rs.next()) {                
+                if (rs.getInt(1)== 1) {
+                    System.out.println("usuario correcto");
+                    CalendarioDeEvento();
+                }
+                else{
+                    prueba.setText("usuario incorrecto");
+                }
+            }
+        } catch (Exception e) {
+            
+        }
+
+    }
 
 }

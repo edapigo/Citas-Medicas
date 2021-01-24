@@ -11,50 +11,51 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectopoo1.FXMLLoginController">
+<VBox prefHeight="409.0" prefWidth="612.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectopoo1.FXMLLoginController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="556.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="718.0">
          <children>
-            <ImageView fitHeight="379.0" fitWidth="556.0" layoutY="-5.0">
+            <ImageView fitHeight="416.0" fitWidth="787.0" layoutX="-69.0" layoutY="-5.0">
                <image>
-                  <Image url="@../Image/Untitled%20Diagram%202.jpg" />
+                  <Image url="@../Image/1611345064652.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="inicio" layoutX="409.0" layoutY="279.0" mnemonicParsing="false" onAction="#Datos" prefHeight="32.0" prefWidth="147.0" style="-fx-background-color: #808080;" text="Iniciar Sesion" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btn1Registro" layoutX="409.0" layoutY="327.0" mnemonicParsing="false" onAction="#Registro" prefHeight="32.0" prefWidth="147.0" style="-fx-background-color: #808080;" text="Registrarse" textAlignment="CENTER" wrapText="true" />
-            <Button layoutX="515.0" layoutY="-10.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: transparent;" text="x">
+            <Button fx:id="inicio" layoutX="588.0" layoutY="333.0" mnemonicParsing="false" onAction="#Datos" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css" text="Iniciar Sesion" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Corbel Light" size="17.0" />
+               </font></Button>
+            <Button fx:id="btn1Registro" layoutX="588.0" layoutY="373.0" mnemonicParsing="false" onAction="#Registro" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css" text="Registrarse" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Corbel Light Italic" size="17.0" />
+               </font></Button>
+            <Button layoutX="683.0" layoutY="-11.0" mnemonicParsing="false" onAction="#salir" prefHeight="20.0" prefWidth="43.0" style="-fx-background-color: transparent;" text="x">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <ImageView fitHeight="98.0" fitWidth="126.0" layoutX="229.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/WhatsApp_Image_2020-12-07_at_17.37.21-removebg-preview.png" />
-               </image>
-            </ImageView>
-            <AnchorPane layoutX="181.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane layoutX="214.0" layoutY="95.0" prefHeight="199.0" prefWidth="270.0">
                <children>
-                  <TextField fx:id="us" alignment="CENTER" layoutX="35.0" layoutY="48.0" prefHeight="44.0" prefWidth="124.0" promptText="Username" style="-fx-background-radius: 10; -fx-background-color: transparent; -fx-border-color: #fdd835; -fx-border-width: 0px 2px 2px 2px;" />
-                  <PasswordField fx:id="cot" alignment="CENTER" layoutX="38.0" layoutY="112.0" prefHeight="41.0" prefWidth="124.0" promptText="Password" style="-fx-background-radius: 10; -fx-background-color: transparent; -fx-border-color: #fdd835; -fx-border-width: 0px 2px 2px 2px;">
+                  <TextField fx:id="us" alignment="CENTER" layoutX="35.0" layoutY="60.0" prefHeight="32.0" prefWidth="226.0" promptText="Username" style="-fx-background-radius: 10;" />
+                  <PasswordField fx:id="cot" alignment="CENTER" layoutX="33.0" layoutY="121.0" prefHeight="32.0" prefWidth="226.0" promptText="Password" style="-fx-background-radius: 10;">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </PasswordField>
-                  <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="1.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="-4.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/usuario.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="76.0" fitWidth="70.0" layoutX="-18.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="77.0" layoutX="-24.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/contr-removebg-preview.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label fx:id="prueba" alignment="CENTER" layoutX="353.0" layoutY="164.0" prefHeight="40.0" prefWidth="200.0">
+            <Label fx:id="prueba" alignment="CENTER" layoutX="484.0" layoutY="174.0" prefHeight="58.0" prefWidth="200.0">
                <font>
-                  <Font size="14.0" />
+                  <Font size="21.0" />
                </font></Label>
          </children>
       </AnchorPane>

@@ -1,22 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3333ff; -fx-opacity: #9933ff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VentanaPrincipal.CalendarioInicioController">
-   <children>
-      <Label alignment="CENTER" layoutX="293.0" layoutY="233.0" prefHeight="134.0" prefWidth="416.0" text="Bienvenido">
-         <font>
-            <Font size="72.0" />
-         </font>
-      </Label>
-      <ButtonBar layoutX="881.0" layoutY="7.0" prefHeight="40.0" prefWidth="89.0">
-         <buttons>
-          <Button mnemonicParsing="false" onAction="#CerrarVentana" text="Salir" />
-         </buttons>
-      </ButtonBar>
-   </children>
-</AnchorPane>
+<BorderPane fx:id="border1" prefHeight="700.0" prefWidth="1112.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VentanaPrincipal.CalendarioInicioController">
+   <left>
+      <VBox fx:id="Menu" prefHeight="642.0" prefWidth="61.0" style="-fx-background-color: #9933FF;" stylesheets="@../css/style.css">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Inicio" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/imagen_2021-01-22_184757-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/imagen_2021-01-20_165415-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#calendario" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="dash_btn">
+                     <image>
+                        <Image url="@../Image/imagen_2021-01-20_165708-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="400.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="dash_btn">
+                     <image>
+                        <Image url="@../Image/imagen_2021-01-20_165745-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="dash_btn">
+                     <image>
+                        <Image url="@../Image/imagen_2021-01-20_165609-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="58.0" prefWidth="991.0" style="-fx-background-color: #9933FF;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#MenuSlide" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/menu-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#CerrarVentana" prefHeight="46.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
+                     <image>
+                        <Image url="@../Image/imagen_2021-01-20_165415-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="1000.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
