@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="border1" prefHeight="700.0" prefWidth="1112.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VentanaPrincipal.CalendarioInicioController">
+<BorderPane fx:id="border1" prefHeight="700.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VentanaPrincipal.MenuPrincipal">
    <left>
-      <VBox fx:id="Menu" prefHeight="642.0" prefWidth="61.0" style="-fx-background-color: #9933FF;" stylesheets="@../css/style.css">
+      <VBox fx:id="Menu" prefHeight="642.0" prefWidth="61.0" style="-fx-background-color: #9933FF; -fx-border-width: 0px 4px 4px 0px; -fx-border-color: #767676;" stylesheets="@../css/style.css">
          <children>
             <Button mnemonicParsing="false" onAction="#Inicio" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
                <graphic>
@@ -21,7 +21,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+            <Button fx:id="agregar" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -30,7 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#calendario" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+            <Button fx:id="cal" mnemonicParsing="false" onAction="#calendario" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="dash_btn">
                      <image>
@@ -39,10 +39,10 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets top="400.0" />
+                  <Insets top="250.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+            <Button fx:id="amigos" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="dash_btn">
                      <image>
@@ -51,7 +51,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
+            <Button fx:id="ajuste" mnemonicParsing="false" onAction="#VentanaAjuste" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="dash_btn">
                      <image>
@@ -64,7 +64,7 @@
       </VBox>
    </left>
    <top>
-      <HBox prefHeight="58.0" prefWidth="991.0" style="-fx-background-color: #9933FF;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="62.0" prefWidth="1131.0" style="-fx-background-color: #9933FF; -fx-border-width: 4px 4px 4px 0px; -fx-border-color: #767676;" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#MenuSlide" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css">
                <graphic>
@@ -75,7 +75,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#CerrarVentana" prefHeight="46.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css">
+            <Button mnemonicParsing="false" onAction="#CerrarVentana" prefHeight="46.0" prefWidth="64.0" style="-fx-background-color: #9933FF;">
                <graphic>
                   <ImageView fitHeight="46.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
                      <image>
