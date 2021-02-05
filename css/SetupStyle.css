@@ -8,6 +8,6 @@
 }
 .dash_btns:hover{
     -fx-border-color: -fx-blue;
-    -fx-border-width: 0px 0px 4px 0px;
+    -fx-border-width: 0px 0px 0px 2px;
 }
 

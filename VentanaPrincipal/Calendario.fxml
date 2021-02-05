@@ -386,7 +386,7 @@
             <Insets left="10.0" />
          </opaqueInsets>
       </GridPane>
-      <GridPane alignment="CENTER" layoutX="21.0" layoutY="125.0" prefHeight="36.0" prefWidth="963.0">
+      <GridPane alignment="CENTER" layoutX="21.0" layoutY="125.0" prefHeight="36.0" prefWidth="963.0" style="-fx-background-color: #808080;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -400,7 +400,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="132.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Monday" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="132.0" text="Monday" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
@@ -408,7 +408,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="121.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Tuesday" wrapText="true" GridPane.columnIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="121.0" text="Tuesday" wrapText="true" GridPane.columnIndex="1">
                <font>
                   <Font name="System Italic" size="21.0" />
                </font>
@@ -416,7 +416,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="110.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Wednesday" wrapText="true" GridPane.columnIndex="2">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="110.0" text="Wednesday" wrapText="true" GridPane.columnIndex="2">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
@@ -424,7 +424,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="117.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Thursday" wrapText="true" GridPane.columnIndex="3">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="117.0" text="Thursday" wrapText="true" GridPane.columnIndex="3">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>
@@ -432,7 +432,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="36.0" prefWidth="118.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Friday" wrapText="true" GridPane.columnIndex="4">
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="118.0" text="Friday" wrapText="true" GridPane.columnIndex="4">
                <font>
                   <Font name="System Italic" size="21.0" />
                </font>
@@ -440,7 +440,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="113.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Saturday" wrapText="true" GridPane.columnIndex="5">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="113.0" text="Saturday" wrapText="true" GridPane.columnIndex="5">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>
@@ -448,7 +448,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="113.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2C13FF;" text="Sunday" wrapText="true" GridPane.columnIndex="6">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="113.0" text="Sunday" wrapText="true" GridPane.columnIndex="6">
                <font>
                   <Font name="System Italic" size="22.0" />
                </font>

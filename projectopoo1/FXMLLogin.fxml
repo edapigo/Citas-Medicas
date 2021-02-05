@@ -15,7 +15,7 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="718.0">
          <children>
-            <ImageView fitHeight="416.0" fitWidth="787.0" layoutX="-69.0" layoutY="-5.0">
+            <ImageView fitHeight="416.0" fitWidth="718.0" layoutY="-5.0">
                <image>
                   <Image url="@../Image/1611345064652.jpg" />
                </image>
@@ -53,9 +53,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label fx:id="prueba" alignment="CENTER" layoutX="484.0" layoutY="174.0" prefHeight="58.0" prefWidth="200.0">
+            <Label fx:id="prueba" alignment="CENTER" layoutX="224.0" layoutY="294.0" prefHeight="50.0" prefWidth="270.0" textFill="WHITE">
                <font>
-                  <Font size="21.0" />
+                  <Font size="18.0" />
                </font></Label>
          </children>
       </AnchorPane>

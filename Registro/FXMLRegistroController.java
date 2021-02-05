@@ -1,11 +1,10 @@
 package Registro;
 
+import ConexionBdb.SqlUsuarios;
+import ConexionBdb.hash;
+import ConexionBdb.usuarios;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 //imports de escenas
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -28,13 +27,6 @@ import projectopoo1.FXMLLoginController;
 
 public class FXMLRegistroController implements Initializable {
 
-    //variables de base de datos
-    public static final String URL = "jdbc:mysql://localhost:3308/datos";
-    public static final String USERNAME = "root";
-    public static final String PASSWORD = "";
-    PreparedStatement ps;
-    ResultSet rs;
-    Connection con = null;
     //variables de ventana
     private float xOffset = 0f;
     private float yOffset = 0f;
@@ -48,34 +40,14 @@ public class FXMLRegistroController implements Initializable {
     public PasswordField pass;
     @FXML
     private Label texto2;
+    @FXML
+    public PasswordField passconfirme;
 
     //Metodos
     @FXML
     private void DatosRegistro(ActionEvent e) {//validacion de campos de registro
-        if (email.getText().isEmpty() == false && username.getText().isEmpty() == false && pass.getText().isEmpty() == false) {
-            
-            try {
-
-                con = getConecion();
-
-                ps = con.prepareStatement("INSERT INTO usuario (email, useres, password) VALUES(?,?,?)");
-                ps.setString(1, email.getText());
-                ps.setString(2, username.getText());
-                ps.setString(3, pass.getText());
-                
-                int res = ps.executeUpdate();
-                
-                if (res >0) {
-                    texto2.setText("Registro completo");
-                    Limpiar();
-                } else {
-                    System.out.println("vales verga puto");
-                }
-                con.close();
-
-            } catch (Exception es) {
-                System.out.println(es);
-            }
+        if (email.getText().isEmpty() == false && username.getText().isEmpty() == false && pass.getText().isEmpty() == false && passconfirme.getText().isEmpty() == false) {
+            validarRegistro();
         } else {
             texto2.setText("Complete los campos");
         }
@@ -132,21 +104,47 @@ public class FXMLRegistroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
-    public static Connection getConecion() {
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Conexion exitosa");
-        } catch (Exception e) {
-            System.out.println(e);
+
+    public void validarRegistro() {
+        SqlUsuarios modSql = new SqlUsuarios();
+        usuarios mod = new usuarios();
+        //validar registro
+        //validar caontra
+        if (pass.getText().equals(passconfirme.getText())) {
+
+            if (modSql.existeusuario(username.getText()) == 0) {
+
+                if (modSql.esEmail(email.getText())) {
+
+                    String nuevopass = hash.sha1(pass.getText());
+
+                    mod.setUsuario(username.getText());
+                    mod.setPassword(nuevopass);
+                    mod.setCorreo(email.getText());
+                    mod.setId_tipo(1);
+
+                    if (modSql.registrar(mod)) {
+                        texto2.setText("Registro guardado");
+                        Limpiar();
+                    } else {
+                        System.out.println("Error para guardar registro");
+                    }
+                } else {
+                    texto2.setText("Correo no valido ");
+                }
+            } else {
+                texto2.setText("El usuario ya existe");
+            }
+        } else {
+            texto2.setText("Las contrseñas no son iguales");
         }
-        return con;
+
     }
-    private void Limpiar(){
+
+    private void Limpiar() {
         email.setText("");
         username.setText("");
         pass.setText("");
+        passconfirme.setText("");
     }
 }

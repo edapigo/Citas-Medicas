@@ -1,18 +1,15 @@
 package projectopoo1;
 
+import ConexionBdb.SqlUsuarios;
+import ConexionBdb.hash;
+import ConexionBdb.usuarios;
 import Registro.FXMLRegistroController;
-import static Registro.FXMLRegistroController.PASSWORD;
-import static Registro.FXMLRegistroController.URL;
-import static Registro.FXMLRegistroController.USERNAME;
-import VentanaPrincipal.CalendarioInicioController;
+import VentanaPrincipal.MenuPrincipal;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,13 +29,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class FXMLLoginController implements Initializable {
-
-    /////////////////////
-
-    PreparedStatement ps;
-    ResultSet rs;
-    Connection con = null;
-    /////////////////
     private float xOffset = 0f;
     private float yOffset = 0f;
     @FXML
@@ -55,12 +45,7 @@ public class FXMLLoginController implements Initializable {
     //metodos
     @FXML
     private void Datos(ActionEvent e) {
-
-        if (us.getText().isEmpty() == false && cot.getText().isEmpty() == false) {
-            validateLogin();
-        } else {
-            prueba.setText("Ingresa tu usuario y contraseña");
-        }
+        validateLogin();
     }
 
     @FXML
@@ -114,11 +99,11 @@ public class FXMLLoginController implements Initializable {
     private void CalendarioDeEvento() {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/VentanaPrincipal/CalendarioInicio.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/VentanaPrincipal/MenuPrincipal.fxml"));
 
             Parent root = loader.load();
 
-            CalendarioInicioController controlador = loader.getController();
+            MenuPrincipal controlador = loader.getController();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -157,41 +142,30 @@ public class FXMLLoginController implements Initializable {
 
     }
 
-    //funcion de base de datos
-
-    public static Connection getConecion() {
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Conexion exitosa");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println(e);
-        }
-        return con;
-    }
-
     public void validateLogin() {
-        try {
-            con = getConecion();
-            String vlogin ="SELECT count(1) FROM usuario WHERE useres = '"+us.getText()+"' AND password = '"+cot.getText()+"'";
+        SqlUsuarios modsql = new SqlUsuarios();
+        usuarios mod = new usuarios();
+        
+        Date date = new Date();
+        DateFormat fechahora = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String pass = cot.getText();
+        
+        if (!us.getText().equals("") && !pass.equals("")) {
+            String nuevopass = hash.sha1(pass);
             
-            Statement stat = con.createStatement();
-            rs =stat.executeQuery(vlogin);
+            mod.setUsuario(us.getText());
+            mod.setPassword(nuevopass);
+            mod.setLast_session(fechahora.format(date));
             
-            while (rs.next()) {                
-                if (rs.getInt(1)== 1) {
-                    System.out.println("usuario correcto");
-                    CalendarioDeEvento();
-                }
-                else{
-                    prueba.setText("usuario incorrecto");
-                }
+            if (modsql.login(mod)) {
+                CalendarioDeEvento();
+            }else{
+                prueba.setText("datos no validos");
             }
-        } catch (Exception e) {
-            
+        }else{
+            prueba.setText("Debe ingresar sus datos ");
         }
-
+        
     }
 
 }

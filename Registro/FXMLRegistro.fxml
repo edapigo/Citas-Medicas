@@ -7,23 +7,48 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Registro.FXMLRegistroController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="@../Image/Untitled%20Diagram.jpg" />
+            <Image url="@../Image/1612302547163.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="texto2" layoutX="428.0" layoutY="200.0" prefHeight="102.0" prefWidth="158.0" />
-      <AnchorPane layoutX="129.0" layoutY="40.0" prefHeight="321.0" prefWidth="368.0">
+      <Label fx:id="texto2" layoutY="68.0" prefHeight="61.0" prefWidth="252.0" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <AnchorPane layoutX="101.0" layoutY="40.0" prefHeight="321.0" prefWidth="399.0">
          <children>
-            <TextField fx:id="email" layoutX="83.0" layoutY="154.0" prefHeight="30.0" prefWidth="184.0" promptText="example@example.com" style="-fx-border-color: #ff6f00; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="username" layoutX="83.0" layoutY="218.0" prefHeight="30.0" prefWidth="184.0" promptText="Username" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ff6f00;" />
+            <TextField fx:id="email" layoutX="200.0" layoutY="131.0" prefHeight="30.0" prefWidth="184.0" promptText="example@example.com" style="-fx-border-color: #ff6f00; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="username" layoutX="200.0" layoutY="179.0" prefHeight="30.0" prefWidth="184.0" promptText="Username" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ff6f00;" />
+            <PasswordField fx:id="pass" layoutX="200.0" layoutY="222.0" prefHeight="27.0" prefWidth="184.0" promptText="Contraseña" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ff6f00;" />
+            <PasswordField fx:id="passconfirme" layoutX="200.0" layoutY="261.0" prefHeight="27.0" prefWidth="184.0" promptText="Contraseña" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ff6f00;" />
+            <Label layoutX="44.0" layoutY="131.0" prefHeight="30.0" prefWidth="125.0" text="Correo electronico:" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="179.0" prefHeight="30.0" prefWidth="125.0" text="Usuario : " textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="221.0" prefHeight="30.0" prefWidth="125.0" text="Contraseña : " textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="259.0" prefHeight="30.0" prefWidth="184.0" text="Confirmar Contraseña:" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Button fx:id="btn" alignment="TOP_LEFT" contentDisplay="CENTER" layoutY="-1.0" mnemonicParsing="false" onAction="#CerrarVentana" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: transparent;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css" text="&lt;- Regresar" textFill="WHITE" />
-      <PasswordField fx:id="pass" layoutX="212.0" layoutY="326.0" prefHeight="27.0" prefWidth="184.0" promptText="Contraseña" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ff6f00;" />
       <Button layoutX="264.0" layoutY="368.0" mnemonicParsing="false" onAction="#DatosRegistro" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: #8883ad;" text="Registrarse" textFill="WHITE" />
       <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="568.0" layoutY="2.0" onMouseClicked="#SalirDeRegistro" pickOnBounds="true" preserveRatio="true">
          <image>
