@@ -39,7 +39,7 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets top="250.0" />
+                  <Insets top="320.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="amigos" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btn">
@@ -66,15 +66,6 @@
    <top>
       <HBox prefHeight="62.0" prefWidth="1131.0" style="-fx-background-color: #9933FF; -fx-border-width: 4px 4px 4px 0px; -fx-border-color: #767676;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#MenuSlide" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #9933FF;" styleClass="dash_btns" stylesheets="@../css/SetupStyle.css">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/menu-removebg-preview.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <Button mnemonicParsing="false" onAction="#CerrarVentana" prefHeight="46.0" prefWidth="64.0" style="-fx-background-color: #9933FF;">
                <graphic>
                   <ImageView fitHeight="46.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
@@ -84,10 +75,13 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="1000.0" />
+                  <Insets left="1050.0" />
                </HBox.margin>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </HBox>
    </top>
 </BorderPane>

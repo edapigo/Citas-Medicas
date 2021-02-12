@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class ProjectoPOO1 extends Application {
+    
     private double xOffset = 0;
     private double yOffset = 0;
     

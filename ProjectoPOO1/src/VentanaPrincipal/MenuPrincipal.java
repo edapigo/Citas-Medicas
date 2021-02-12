@@ -18,7 +18,6 @@ import javafx.scene.layout.VBox;
 
 public class MenuPrincipal implements Initializable {
     usuarios mod;
-    
     @FXML
     private BorderPane border1;
     @FXML
@@ -32,38 +31,20 @@ public class MenuPrincipal implements Initializable {
     @FXML
     private Button ajuste;
 
-  
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Inicio();
-        //agregar.setVisible(false);
-    }
-    public void initialize(usuarios mod) {
-        
-        this.mod = mod;
+        Inicio();
         agregar.setVisible(false);
-        if (mod.getId_tipo() == 1) {
-           agregar.setVisible(false);
-           ajuste.setVisible(true);
-        }else if (mod.getId_tipo() == 2){
-            Inicio();
-            agregar.setVisible(true);
-            ajuste.setVisible(false);
-        }
+
     }
 
     @FXML
     private void calendario(ActionEvent event) {
         loadFxmlCalendario("Calendario");
+        agregar.setVisible(true);
+
         
-        Menu.setVisible(false);
-        cal.setVisible(false);
-        amigos.setVisible(false);
-        
-    }
-    @FXML
-    private void MenuSlide(ActionEvent event) {
-        Menu.setVisible(true);
     }
     @FXML
     public void CerrarVentana() {
@@ -99,7 +80,10 @@ public class MenuPrincipal implements Initializable {
     private void VentanaAjuste(ActionEvent event) {
         loadFxmlCalendario("Ajuste");
     }
-
+    @FXML
+    private void VentanaAmigos(ActionEvent event) {
+        loadFxmlCalendario("Amigos");
+    }
   
 
     

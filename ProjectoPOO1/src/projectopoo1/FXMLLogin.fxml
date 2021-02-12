@@ -53,9 +53,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label fx:id="prueba" alignment="CENTER" layoutX="224.0" layoutY="294.0" prefHeight="50.0" prefWidth="270.0" textFill="WHITE">
+            <Label fx:id="prueba" alignment="CENTER" layoutX="14.0" layoutY="308.0" prefHeight="50.0" prefWidth="270.0" textFill="#ffd000">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font></Label>
          </children>
       </AnchorPane>

@@ -39,7 +39,7 @@ public class SqlUsuarios extends conexionBDB {
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT u.id, u.usuarios, u.password, u.id_tipo, t.nombre FROM usuario AS u INNER JOIN tipo_usuario AS t ON u.id_tipo = t.id WHERE usuarios = ?";
+        String sql = "SELECT u.id, u.usuarios, u.password, u.id_tipo, t.nombre FROM usuario AS u INNER JOIN tipo_usuario AS t ON u.id_tipo=t.id WHERE usuarios = ?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class SqlUsuarios extends conexionBDB {
             if (rs.next()) {
                 if (usr.getPassword().equals(rs.getString(3))) {
 
-                    String sqlupdate = "UPDATE usuario SET lastconection = ? WHERE id = ?";
+                    String sqlupdate = "UPDATE usuario SET lastconection = ? WHERE id=?";
                     ps=con.prepareStatement(sqlupdate);
                     ps.setString(1, usr.getLast_session());
                     ps.setInt(2,rs.getInt(1));
