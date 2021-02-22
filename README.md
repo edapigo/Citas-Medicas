@@ -8,6 +8,6 @@ Sistema de registro de actividades
   *Luego el usuario  puede seleccionar cualquier hora disponible  e ingresar el nombre de la actividad y una descripción  de la misma.  
   *En la pantalla  del punto anterior va a poder  agregar mas usuarios a esa actividad.  
   *El sistema deberá permitir  solamente asignar  mas usuarios siempre y cuando tengan  el horario disponible. 
-  *El sistema debera tener la opción de hacer un recordatorio de la actividad.
+  *El sistema debera tener la opción de hacer un recordatorio de la actividad dias anteriores.
   *El guardar la planificación de actividades es opcional, no es necesario.  
   *Finalmente, la hora que se cumpla una determinada actividad deberá enviarse un recordatorio(correo o whatsapp) a los usuarios implicados de manera automática.  
