@@ -41,7 +41,6 @@ public class FXMLLoginController implements Initializable {
     private Button inicio;
     @FXML
     public Label prueba;
-
     //metodos
     @FXML
     private void Datos(ActionEvent e) {
@@ -95,11 +94,11 @@ public class FXMLLoginController implements Initializable {
 
     }
 
-    @FXML
     private void CalendarioDeEvento() {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/VentanaPrincipal/MenuPrincipal.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("tips/java/cfg/lableText");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/VentanaPrincipal/MenuPrincipal.fxml"),bundle);
 
             Parent root = loader.load();
 
@@ -139,6 +138,7 @@ public class FXMLLoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rb.getLocale();
 
     }
 
@@ -167,5 +167,6 @@ public class FXMLLoginController implements Initializable {
         }
         
     }
+    
 
 }

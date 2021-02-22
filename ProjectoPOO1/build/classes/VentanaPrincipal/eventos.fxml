@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VentanaPrincipal.EventosController">
+   <children>
+      <Pane prefHeight="26.0" prefWidth="198.0">
+         <children>
+            <ToolBar layoutX="-1.0" layoutY="-8.0" prefHeight="43.0" prefWidth="618.0">
+              <items>
+                  <Pane prefHeight="33.0" prefWidth="569.0" />
+                  <ImageView fx:id="salir" fitHeight="33.0" fitWidth="219.0" onMouseClicked="#cerrarventanas" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/imagen_2020-12-22_162045-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+              </items>
+            </ToolBar>
+         </children>
+      </Pane>
+      <Pane prefHeight="76.0" prefWidth="317.0">
+         <children>
+            <Label layoutX="71.0" layoutY="10.0" prefHeight="27.0" prefWidth="166.0" text="%lablenombre">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombreevento" layoutX="6.0" layoutY="37.0" prefHeight="33.0" prefWidth="306.0" />
+            <DatePicker fx:id="fechas" layoutX="429.0" layoutY="30.0" />
+            <Label layoutX="348.0" layoutY="29.0" prefHeight="27.0" prefWidth="52.0" text="%lableFecha">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="138.0" prefWidth="618.0">
+         <children>
+            <Label layoutX="108.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="%lableDescri">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtdescripcion" layoutX="6.0" layoutY="41.0" prefHeight="63.0" prefWidth="296.0" />
+            <Label layoutX="323.0" layoutY="30.0" prefHeight="27.0" prefWidth="129.0" text="%lablete">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="ListaEventos" layoutX="452.0" layoutY="31.0" prefWidth="150.0" />
+            <Label layoutX="317.0" layoutY="75.0" prefHeight="27.0" prefWidth="160.0" text="%lableste">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbxSubtipo" layoutX="477.0" layoutY="76.0" prefHeight="25.0" prefWidth="135.0" />
+         </children>
+      </Pane>
+      <Pane prefHeight="138.0" prefWidth="618.0">
+         <children>
+            <Button layoutX="91.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="%btnHoras" />
+            <Button layoutX="260.0" layoutY="37.0" mnemonicParsing="false" onAction="#guradarDatos" prefHeight="25.0" prefWidth="99.0" text="%btnGuardar" />
+         </children>
+      </Pane>
+   </children>
+</VBox>

@@ -1,6 +1,8 @@
 
 package projectopoo1;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +19,9 @@ public class ProjectoPOO1 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLLogin.fxml"));
+       //Locale locale = new Locale("en_UK");
+        ResourceBundle bundle = ResourceBundle.getBundle("tips/java/cfg/lableText");
+        Parent root = FXMLLoader.load(getClass().getResource("/VentanaPrincipal/MenuPrincipal.fxml"),bundle);
         Scene scene = new Scene(root);
 
         stage.initStyle(StageStyle.UNDECORATED);

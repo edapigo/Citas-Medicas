@@ -63,7 +63,8 @@ public class FXMLRegistroController implements Initializable {
     @FXML
     public void CerrarVentana() {//volver al inicio de sesion
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/projectopoo1/FXMLLogin.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("tips/java/cfg/lableText");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/projectopoo1/FXMLLogin.fxml"),bundle);
 
             Parent root = loader.load();
 
