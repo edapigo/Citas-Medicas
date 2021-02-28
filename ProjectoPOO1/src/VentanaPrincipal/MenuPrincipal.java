@@ -6,8 +6,10 @@ import java.net.URL;
 ///////////////////////
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -32,11 +34,13 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 ////////////////////////////
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import projectopoo1.FXMLLoginController;
@@ -77,23 +81,43 @@ public class MenuPrincipal implements Initializable {
     @FXML
     private Label ContadorHoras;
     @FXML
-    private Pane panel29;
-    @FXML
-    private Pane panel30;
-    @FXML
-    private Pane panel31;
-    @FXML
     private AnchorPane panelamigos;
     @FXML
     private Pane color1;
     @FXML
     private Pane color2;
     
+    @FXML
+    private GridPane calendario;
+    
+    private YearMonth AñoMesActual;
+    
+     private ArrayList<AnchorPaneNode> diasCalendario = new ArrayList<>(35);
+
+
+    
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        AñoMesActual = YearMonth.now();
+        
+        //Llena el GridPane con archor pane
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 7; j++) {
+                AnchorPaneNode ap = new AnchorPaneNode();
+                ap.setPrefSize(200,200);
+                calendario.add(ap,j,i);
+                diasCalendario.add(ap);
+            }
+        }
+        //Función que actualiza el calendario
+        actualizarCalendario(YearMonth.now());
+        
+        
         //reloj 
         meses(Meses);
         Anios.setText(anio + "");
@@ -188,6 +212,8 @@ public class MenuPrincipal implements Initializable {
             Meses--;
             meses(Meses);
         }
+        AñoMesActual = AñoMesActual.minusMonths(1);
+        actualizarCalendario(AñoMesActual);
     }
 
     @FXML
@@ -196,93 +222,75 @@ public class MenuPrincipal implements Initializable {
             Meses++;
             meses(Meses);
         }
+        AñoMesActual = AñoMesActual.plusMonths(1);
+        actualizarCalendario(AñoMesActual);
     }
 
     @FXML
     private void adelentaAnio(MouseEvent event) {
         anio++;
         Anios.setText(anio + "");
+        AñoMesActual = AñoMesActual.plusYears(1);
+        actualizarCalendario(AñoMesActual);
     }
 
     @FXML
     private void atrasAnio(MouseEvent event) {
         anio--;
         Anios.setText(anio + "");
+        AñoMesActual = AñoMesActual.minusYears(1);
+        actualizarCalendario(AñoMesActual);
     }
 //calendario
     private void meses(int Meses) {
         switch (Meses) {
             case 1:
                 meses.setText("Enero");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(false);
+
                 break;
             case 2:
                 meses.setText("Febrero");
-                panel29.setDisable(true);
-                panel30.setDisable(true);
-                panel31.setDisable(true);
+
                 break;
             case 3:
                 meses.setText("Marzo");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(false);
+
                 break;
             case 4:
                 meses.setText("Abril");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(true);
+
                 break;
             case 5:
                 meses.setText("Mayo");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(true);
+
                 break;
             case 6:
                 meses.setText("Junio");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(true);
+
                 break;
             case 7:
                 meses.setText("Julio");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(false);
+
                 break;
             case 8:
                 meses.setText("Agosto");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(false);
+
                 break;
             case 9:
                 meses.setText("Septiembre");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(true);
+
                 break;
             case 10:
                 meses.setText("Octubre");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(false);
+
                 break;
             case 11:
                 meses.setText("Noviembre");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(true);
+
                 break;
             case 12:
                 meses.setText("Diciembre");
-                panel29.setDisable(false);
-                panel30.setDisable(false);
-                panel31.setDisable(false);
+
                 break;
         }
     }
@@ -324,5 +332,25 @@ public class MenuPrincipal implements Initializable {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public void actualizarCalendario(YearMonth yearMonth) {
+        // Obtiene el mes que vamos a empezar.
+        LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
+        // Regresar los dias hasta que sea lunes, excepto si empieza en lunes
+        while (!calendarDate.getDayOfWeek().toString().equals("MONDAY")) {
+            calendarDate = calendarDate.minusDays(1);
+        }
+        // Actualizar el calendario con los dias
+        for (AnchorPaneNode ap : diasCalendario) {
+            if (ap.getChildren().size() != 0) {
+                ap.getChildren().remove(0);
+            }
+            Text txt = new Text(String.valueOf(calendarDate.getDayOfMonth()));
+            ap.setDate(calendarDate);
+            ap.setTopAnchor(txt, 5.0);
+            ap.setLeftAnchor(txt, 5.0);
+            ap.getChildren().add(txt);
+            calendarDate = calendarDate.plusDays(1);
+        }
     }
 }
