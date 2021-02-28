@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseExited="#exitventana" prefHeight="309.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.PaneleventosController">
+   <top>
+      <HBox prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #9933FF;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane disable="true" prefHeight="33.0" prefWidth="646.0" visible="false" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane prefHeight="423.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <DatePicker fx:id="Dtfechas" editable="false" layoutX="81.0" layoutY="11.0" showWeekNumbers="true" />
+            <Label layoutX="14.0" layoutY="10.0" prefHeight="27.0" prefWidth="67.0" text="%lfecha">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="59.0" prefHeight="27.0" prefWidth="168.0" text="%lnombre">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TextNombreEvento" disable="true" editable="false" layoutX="180.0" layoutY="57.0" prefHeight="32.0" prefWidth="315.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="13.0" layoutY="142.0" prefHeight="27.0" prefWidth="125.0" text="%ldescripcion">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textDescripcionevento" disable="true" editable="false" layoutX="138.0" layoutY="142.0" prefHeight="96.0" prefWidth="367.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextArea>
+            <Label layoutX="13.0" layoutY="98.0" prefHeight="27.0" prefWidth="107.0" text="%lcategoria">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="302.0" layoutY="98.0" prefHeight="27.0" prefWidth="135.0" text="%lsubcategoria">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtcategoria" disable="true" editable="false" layoutX="126.0" layoutY="99.0" prefHeight="25.0" prefWidth="167.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtSubcategori" disable="true" editable="false" layoutX="424.0" layoutY="99.0" prefHeight="25.0" prefWidth="167.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
